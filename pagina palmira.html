@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Palmira Makeup Cosmetics</title>
+
+    <style>
+
+        /* ==============================
+           ESTILOS GENERALES
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fff7fa;
+            color: #4a3039;
+        }
+
+
+        /* ==============================
+           ENCABEZADO
+        ============================== */
+
+        header {
+            background: linear-gradient(135deg, #f7c6d9, #e9a9c1);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin-left: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #6d4050;
+        }
+
+
+        /* ==============================
+           CARRUSEL
+        ============================== */
+
+        .carousel {
+            width: 100%;
+            height: 430px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: deslizar 12s infinite;
+        }
+
+        .slide {
+            width: 33.333%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* IMÁGENES DEL CARRUSEL */
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* TEXTO SOBRE LAS IMÁGENES */
+
+        .texto-slide {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255,255,255,0.78);
+            padding: 25px 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .texto-slide h1 {
+            font-size: 45px;
+            color: #a64f70;
+            margin-bottom: 10px;
+        }
+
+        .texto-slide p {
+            font-size: 20px;
+            color: #6d4050;
+        }
+
+
+        /* ANIMACIÓN */
+
+        @keyframes deslizar {
+
+            0%, 28% {
+                transform: translateX(0);
+            }
+
+            33%, 61% {
+                transform: translateX(-33.333%);
+            }
+
+            66%, 94% {
+                transform: translateX(-66.666%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+
+        }
+
+
+        /* ==============================
+           SECCIONES
+        ============================== */
+
+        section {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 35px;
+            color: #b35c7b;
+            margin-bottom: 30px;
+        }
+
+        .descripcion {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+
+        /* ==============================
+           PRODUCTOS
+        ============================== */
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .producto {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+
+        /* ESPACIO PARA LAS IMÁGENES */
+
+        .producto .imagen {
+            height: 220px;
+            background-color: #f8e1e9;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .producto .imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+
+        .producto h3 {
+            color: #a64f70;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d47799;
+            margin: 15px 0;
+        }
+
+
+        /* ==============================
+           BOTONES
+        ============================== */
+
+        .boton {
+            background-color: #d982a2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #b85f80;
+            transform: scale(1.05);
+        }
+
+
+        /* ==============================
+           MISIÓN Y VISIÓN
+        ============================== */
+
+        .contenedor-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .info {
+            background-color: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .info h3 {
+            color: #b35c7b;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .info p {
+            line-height: 1.6;
+        }
+
+
+        /* ==============================
+           CONTACTO
+        ============================== */
+
+        .contacto {
+            background-color: #f4c3d5;
+        }
+
+        .contacto p {
+            margin: 10px;
+            font-size: 17px;
+        }
+
+
+        /* ==============================
+           PIE DE PÁGINA
+        ============================== */
+
+        footer {
+            background-color: #8d5269;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* ==============================
+           RESPONSIVE PARA CELULAR
+        ============================== */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .carousel {
+                height: 350px;
+            }
+
+            .texto-slide {
+                padding: 20px;
+            }
+
+            .texto-slide h1 {
+                font-size: 32px;
+            }
+
+            .texto-slide p {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ====================================
+         ENCABEZADO
+    ==================================== -->
+
+    <header>
+
+        <div class="logo">
+            Palmira Makeup Cosmetics
+        </div>
+
+        <nav>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#productos">
+                Productos
+            </a>
+
+            <a href="#nosotros">
+                Nosotros
+            </a>
+
+            <a href="#contacto">
+                Contacto
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ====================================
+         CARRUSEL
+    ==================================== -->
+
+    <div class="carousel" id="inicio">
+
+        <div class="slides">
+
+
+            <!-- CARRUSEL 1 -->
+
+            <div class="slide">
+
+                <!-- CAMBIA carrusel1.jpg POR TU IMAGEN -->
+
+                <img
+                    src="c:\Users\cliente17\Downloads\todo\brochas.jpeg"
+                    
+                    alt="Cosméticos Palmira"
+                >
+
+                <div class="texto-slide">
+
+                    <h1>
+                        PALMIRA
+                    </h1>
+
+                    <p>
+                        Realza tu belleza, expresa tu esencia.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CARRUSEL 2 -->
+
+            <div class="slide">
+
+                <!-- CAMBIA carrusel2.jpg POR TU IMAGEN -->
+
+                <img
+                    src="c:\Users\cliente17\Downloads\todo\esponja.jpeg"
+                    alt="Maquillaje Palmira"
+                >
+
+                <div class="texto-slide">
+
+                    <h1>
+                        Maquillaje para ti
+                    </h1>
+
+                    <p>
+                        Productos pensados para hacerte brillar.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CARRUSEL 3 -->
+
+            <div class="slide">
+
+                <!-- CAMBIA carrusel3.jpg POR TU IMAGEN -->
+
+                <img
+                    src="c:\Users\cliente17\Downloads\todo\varios.jpeg"
+                    alt="Colección Palmira"
+                >
+
+                <div class="texto-slide">
+
+                    <h1>
+                        Tu belleza, tu estilo
+                    </h1>
+
+                    <p>
+                        Descubre nuestra colección de cosméticos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ====================================
+         PRODUCTOS
+    ==================================== -->
+
+    <section id="productos">
+
+        <h2>
+            Nuestros Productos
+        </h2>
+
+        <div class="productos">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <div class="imagen">
+
+                    <!-- AQUÍ VA LA FOTO DE LA BASE -->
+
+                    <img
+                        src="c:\Users\cliente17\Downloads\todo\perfect skin.jpeg"
+                        alt="Base Perfect Skin"
+                    >
+
+                </div>
+
+                <h3>
+                    Base Perfect Skin
+                </h3>
+
+                <p>
+                    Base de maquillaje de cobertura ligera a media.
+                </p>
+
+                <div class="precio">
+                    $299 MXN
+                </div>
+
+                <button
+                    class="boton"
+                    onclick="comprar('Base Perfect Skin')"
+                >
+                    Comprar
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto">
+
+                <div class="imagen">
+
+                    <!-- AQUÍ VA LA FOTO DEL LABIAL -->
+
+                    <img
+                        src="c:\Users\cliente17\Downloads\todo\labial.jpeg"
+                        alt="Labial Velvet"
+                    >
+
+                </div>
+
+                <h3>
+                    Labial Velvet
+                </h3>
+
+                <p>
+                    Color intenso con acabado suave y elegante.
+                </p>
+
+                <div class="precio">
+                    $199 MXN
+                </div>
+
+                <button
+                    class="boton"
+                    onclick="comprar('Labial Velvet')"
+                >
+                    Comprar
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto">
+
+                <div class="imagen">
+
+                    <!-- AQUÍ VA LA FOTO DEL ILUMINADOR -->
+
+                    <img
+                        src="c:\Users\cliente17\Downloads\todo\golden glow.jpeg"
+                        alt="Iluminador Glow"
+                    >
+
+                </div>
+
+                <h3>
+                    Iluminador Glow
+                </h3>
+
+                <p>
+                    Brillo luminoso para destacar tus facciones.
+                </p>
+
+                <div class="precio">
+                    $249 MXN
+                </div>
+
+                <button
+                    class="boton"
+                    onclick="comprar('Iluminador Glow')"
+                >
+                    Comprar
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="producto">
+
+                <div class="imagen">
+
+                    <!-- AQUÍ VA LA FOTO DE LA PALETA -->
+
+                    <img
+                        src="c:\Users\cliente17\Downloads\todo\paleta.jpeg"
+                        alt="Paleta Dream"
+                    >
+
+                </div>
+
+                <h3>
+                    Paleta Dream
+                </h3>
+
+                <p>
+                    Paleta de sombras con tonos versátiles.
+                </p>
+
+                <div class="precio">
+                    $399 MXN
+                </div>
+
+                <button
+                    class="boton"
+                    onclick="comprar('Paleta Dream')"
+                >
+                    Comprar
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ====================================
+         NOSOTROS
+    ==================================== -->
+
+    <section id="nosotros">
+
+        <h2>
+            Conócenos
+        </h2>
+
+        <p class="descripcion">
+
+            Palmira Makeup Cosmetics es una marca de cosméticos
+            creada para ofrecer productos de maquillaje que permitan
+            a cada persona expresar su personalidad y resaltar su belleza.
+
+        </p>
+
+        <br>
+        <br>
+
+
+        <div class="contenedor-info">
+
+
+            <!-- MISIÓN -->
+
+            <div class="info">
+
+                <h3>
+                    Misión
+                </h3>
+
+                <p>
+
+                    Crear productos de maquillaje de calidad,
+                    accesibles y modernos que ayuden a nuestros
+                    clientes a sentirse seguros, creativos y auténticos.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- VISIÓN -->
+
+            <div class="info">
+
+                <h3>
+                    Visión
+                </h3>
+
+                <p>
+
+                    Convertirnos en una marca reconocida de cosméticos,
+                    destacando por nuestra innovación, calidad y
+                    compromiso con nuestros clientes.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ====================================
+         CONTACTO
+    ==================================== -->
+
+    <section
+        id="contacto"
+        class="contacto"
+    >
+
+        <h2>
+            Contáctanos
+        </h2>
+
+        <p>
+            📧 makeuppp_palmira
+        </p>
+
+        <p>
+            📱 5585621604
+        </p>
+
+        <p>
+            📍 Ciudad de México
+        </p>
+
+        <br>
+
+        <button
+            class="boton"
+            onclick="mensajeContacto()"
+        >
+            Escríbenos
+        </button>
+
+    </section>
+
+
+
+    <!-- ====================================
+         PIE DE PÁGINA
+    ==================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Palmira Makeup Cosmetics
+        </p>
+
+        <p>
+            Realza tu belleza, expresa tu esencia.
+        </p>
+
+    </footer>
+
+
+
+    <!-- ====================================
+         JAVASCRIPT
+    ==================================== -->
+
+    <script>
+
+        function comprar(producto) {
+
+            alert(
+                "¡Gracias por tu interés en "
+                + producto
+                + "! 💗"
+            );
+
+        }
+
+
+        function mensajeContacto() {
+
+            alert(
+                "¡Gracias por contactar a Palmira Makeup Cosmetics! 💄✨"
+            );
+
+        }
+
+    </script>
+
+
+</body>
+</html>
